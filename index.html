@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoLease MX — Arrendamiento Puro de Vehículos</title>
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts: Bebas Neue + Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       CURSOR PERSONALIZADO
+  ══════════════════════════════════════════ -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- ══════════════════════════════════════════
+       BARRA DE PROGRESO DE SCROLL
+  ══════════════════════════════════════════ -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="al-navbar" id="navbar">
+    <div class="al-navbar__inner">
+      <!-- Logo -->
+      <a href="#inicio" class="al-navbar__logo">
+        <i class="fas fa-car-side"></i>
+        <span>AUTO<strong>LEASE</strong> MX</span>
+      </a>
+
+      <!-- Burger (mobile) -->
+      <button class="al-navbar__burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Links -->
+      <div class="al-navbar__menu" id="nav-menu">
+        <a href="#inicio" class="al-navbar__link">Inicio</a>
+        <a href="#servicios" class="al-navbar__link">Servicios</a>
+        <a href="#beneficios" class="al-navbar__link">Beneficios</a>
+        <a href="#como-funciona" class="al-navbar__link">Cómo funciona</a>
+        <a href="#sucursales" class="al-navbar__link">Sucursales</a>
+        <a href="#contacto" class="al-navbar__link">Contacto</a>
+        <a href="#contacto" class="al-navbar__cta">Cotizar Ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO — SLIDESHOW PANTALLA COMPLETA
+  ══════════════════════════════════════════ -->
+  <section class="al-hero" id="inicio">
+    <!-- Slides -->
+    <div class="al-hero__slides" id="hero-slides">
+      <div class="al-hero__slide active" style="background-image:url('https://source.unsplash.com/1600x900/?luxury,car,1')"></div>
+      <div class="al-hero__slide" style="background-image:url('https://source.unsplash.com/1600x900/?sports,car,2')"></div>
+      <div class="al-hero__slide" style="background-image:url('https://source.unsplash.com/1600x900/?sedan,car,3')"></div>
+      <div class="al-hero__slide" style="background-image:url('https://source.unsplash.com/1600x900/?suv,car,4')"></div>
+      <div class="al-hero__slide" style="background-image:url('https://source.unsplash.com/1600x900/?electric,car,5')"></div>
+    </div>
+    <!-- Overlay -->
+    <div class="al-hero__overlay"></div>
+
+    <!-- Contenido -->
+    <div class="al-hero__content">
+      <p class="al-hero__eyebrow" id="hero-eyebrow">ARRENDAMIENTO PURO DE VEHÍCULOS</p>
+      <h1 class="al-hero__title" id="hero-title">MANEJA LO QUE <span class="text-red">MERECES</span></h1>
+      <p class="al-hero__desc" id="hero-desc">Conduce el vehículo de tus sueños con rentas flexibles y deducibles. Sin enganches, sin complicaciones.</p>
+      <div class="al-hero__btns" id="hero-btns">
+        <a href="#contacto" class="btn-primary">Cotizar Ahora</a>
+        <a href="#beneficios" class="btn-outline">Conoce más</a>
+      </div>
+    </div>
+
+    <!-- Dots indicadores -->
+    <div class="al-hero__dots" id="hero-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+    </div>
+
+    <!-- Scroll down arrow -->
+    <div class="al-hero__scroll-arrow">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECCIÓN BENEFICIOS
+  ══════════════════════════════════════════ -->
+  <section class="al-benefits section" id="beneficios">
+    <div class="container">
+      <div class="al-section-head">
+        <h2 class="al-section-title">¿POR QUÉ ARRENDARNOS?</h2>
+        <div class="al-section-line"></div>
+      </div>
+      <div class="columns is-multiline al-benefits__grid">
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-card benefit-card">
+          <div class="al-card__icon"><i class="fas fa-coins"></i></div>
+          <h3 class="al-card__title">Flexibilidad Financiera</h3>
+          <p class="al-card__text">Rentas periódicas 100% deducibles de impuestos. Optimiza tu flujo de caja sin comprometer capital.</p>
+        </div>
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-card benefit-card">
+          <div class="al-card__icon"><i class="fas fa-shield-halved"></i></div>
+          <h3 class="al-card__title">Protección de Activos</h3>
+          <p class="al-card__text">Alianzas con las aseguradoras líderes del mercado. Tu vehículo siempre protegido al máximo nivel.</p>
+        </div>
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-card benefit-card">
+          <div class="al-card__icon"><i class="fas fa-rocket"></i></div>
+          <h3 class="al-card__title">Libera Capital</h3>
+          <p class="al-card__text">Invierte tus recursos donde más importa. No inmovilices capital en activos depreciables.</p>
+        </div>
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-card benefit-card">
+          <div class="al-card__icon"><i class="fas fa-headset"></i></div>
+          <h3 class="al-card__title">Servicio Personalizado</h3>
+          <p class="al-card__text">Acompañamiento integral en todo el proceso, desde la cotización hasta la entrega de tu vehículo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECCIÓN SERVICIOS — SLIDER
+  ══════════════════════════════════════════ -->
+  <section class="al-services" id="servicios">
+    <div class="al-noise-overlay"></div>
+    <div class="container">
+      <div class="al-section-head">
+        <h2 class="al-section-title">NUESTROS SERVICIOS</h2>
+        <div class="al-section-line"></div>
+      </div>
+    </div>
+    <div class="al-services__slider-wrap">
+      <button class="al-slider__arrow al-slider__arrow--left" id="slider-prev"><i class="fas fa-chevron-left"></i></button>
+      <div class="al-services__slider" id="services-slider">
+        <div class="al-service-card">
+          <div class="al-service-card__bg" style="background-image:url('https://source.unsplash.com/600x800/?sedan,car')"></div>
+          <div class="al-service-card__overlay"></div>
+          <div class="al-service-card__content">
+            <h3>AUTO</h3>
+            <button class="btn-primary btn-sm">Ver más</button>
+          </div>
+        </div>
+        <div class="al-service-card">
+          <div class="al-service-card__bg" style="background-image:url('https://source.unsplash.com/600x800/?fleet,cars')"></div>
+          <div class="al-service-card__overlay"></div>
+          <div class="al-service-card__content">
+            <h3>FLOTILLAS EMPRESARIALES</h3>
+            <button class="btn-primary btn-sm">Ver más</button>
+          </div>
+        </div>
+        <div class="al-service-card">
+          <div class="al-service-card__bg" style="background-image:url('https://source.unsplash.com/600x800/?suv,pickup')"></div>
+          <div class="al-service-card__overlay"></div>
+          <div class="al-service-card__content">
+            <h3>SUV Y PICKUPS</h3>
+            <button class="btn-primary btn-sm">Ver más</button>
+          </div>
+        </div>
+        <div class="al-service-card">
+          <div class="al-service-card__bg" style="background-image:url('https://source.unsplash.com/600x800/?electric,car')"></div>
+          <div class="al-service-card__overlay"></div>
+          <div class="al-service-card__content">
+            <h3>VEHÍCULOS ELÉCTRICOS</h3>
+            <button class="btn-primary btn-sm">Ver más</button>
+          </div>
+        </div>
+        <div class="al-service-card">
+          <div class="al-service-card__bg" style="background-image:url('https://source.unsplash.com/600x800/?luxury,car,keys')"></div>
+          <div class="al-service-card__overlay"></div>
+          <div class="al-service-card__content">
+            <h3>ARRENDAMIENTO CON OPCIÓN A COMPRA</h3>
+            <button class="btn-primary btn-sm">Ver más</button>
+          </div>
+        </div>
+        <div class="al-service-card">
+          <div class="al-service-card__bg" style="background-image:url('https://source.unsplash.com/600x800/?car,dealership')"></div>
+          <div class="al-service-card__overlay"></div>
+          <div class="al-service-card__content">
+            <h3>LEASE BACK</h3>
+            <button class="btn-primary btn-sm">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <button class="al-slider__arrow al-slider__arrow--right" id="slider-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECCIÓN CÓMO FUNCIONA
+  ══════════════════════════════════════════ -->
+  <section class="al-steps section" id="como-funciona">
+    <div class="container">
+      <div class="al-section-head">
+        <h2 class="al-section-title">CÓMO FUNCIONA</h2>
+        <div class="al-section-line"></div>
+      </div>
+      <div class="al-steps__track">
+        <!-- Línea conectora SVG -->
+        <svg class="al-steps__line" viewBox="0 0 900 4" preserveAspectRatio="none">
+          <line x1="0" y1="2" x2="900" y2="2" stroke="#e01b24" stroke-width="2" stroke-dasharray="900" stroke-dashoffset="900" id="steps-line"/>
+        </svg>
+        <div class="al-steps__grid">
+          <div class="al-step step-item">
+            <span class="al-step__bg-num">01</span>
+            <div class="al-step__dot"></div>
+            <div class="al-step__icon"><i class="fas fa-calculator"></i></div>
+            <h3 class="al-step__title">Cotización</h3>
+            <p class="al-step__desc">Recibe tu propuesta personalizada en menos de 24 horas. Sin compromisos.</p>
+          </div>
+          <div class="al-step step-item">
+            <span class="al-step__bg-num">02</span>
+            <div class="al-step__dot"></div>
+            <div class="al-step__icon"><i class="fas fa-file-contract"></i></div>
+            <h3 class="al-step__title">Expediente</h3>
+            <p class="al-step__desc">Te acompañamos en la integración de la documentación requerida de forma ágil.</p>
+          </div>
+          <div class="al-step step-item">
+            <span class="al-step__bg-num">03</span>
+            <div class="al-step__dot"></div>
+            <div class="al-step__icon"><i class="fas fa-key"></i></div>
+            <h3 class="al-step__title">Entrega</h3>
+            <p class="al-step__desc">Tu vehículo listo en tiempo récord. Empieza a manejar lo que mereces.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECCIÓN ESTADÍSTICAS / CONTADORES
+  ══════════════════════════════════════════ -->
+  <section class="al-stats" id="estadisticas">
+    <div class="al-stats__parallax" id="stats-bg"></div>
+    <div class="al-stats__overlay"></div>
+    <div class="container">
+      <div class="columns is-multiline al-stats__grid">
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-stat">
+          <span class="al-stat__num" data-target="500">0</span>
+          <span class="al-stat__plus">+</span>
+          <p class="al-stat__label">Clientes satisfechos</p>
+        </div>
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-stat">
+          <span class="al-stat__num" data-target="12">0</span>
+          <span class="al-stat__plus">+</span>
+          <p class="al-stat__label">Años de experiencia</p>
+        </div>
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-stat">
+          <span class="al-stat__num" data-target="1200">0</span>
+          <span class="al-stat__plus">+</span>
+          <p class="al-stat__label">Vehículos arrendados</p>
+        </div>
+        <div class="column is-3-desktop is-half-tablet is-full-mobile al-stat">
+          <span class="al-stat__num" data-target="4">0</span>
+          <p class="al-stat__label">Sucursales en México</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECCIÓN SUCURSALES
+  ══════════════════════════════════════════ -->
+  <section class="al-branches section" id="sucursales">
+    <div class="container">
+      <div class="al-section-head">
+        <h2 class="al-section-title">ENCUÉNTRANOS</h2>
+        <div class="al-section-line"></div>
+      </div>
+      <div class="columns is-multiline">
+
+        <div class="column is-3-desktop is-half-tablet is-full-mobile">
+          <div class="al-branch-card">
+            <div class="al-branch-card__front">
+              <div class="al-branch-card__icon"><i class="fas fa-location-dot"></i></div>
+              <h3 class="al-branch-card__city">CANCÚN</h3>
+              <p>S.M. 3, Mza. 15, Av. Bonampak<br>C.P. 77500, Q. Roo</p>
+              <a href="tel:+529988844323" class="al-branch-card__tel"><i class="fas fa-phone"></i> +52 998 884 4323</a>
+            </div>
+            <div class="al-branch-card__back">
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Av+Bonampak+Cancun&output=embed" title="Cancún"></iframe>
+              <a href="https://maps.google.com/?q=Av+Bonampak+Cancun" target="_blank" class="btn-primary btn-sm">Ver en mapa</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-3-desktop is-half-tablet is-full-mobile">
+          <div class="al-branch-card">
+            <div class="al-branch-card__front">
+              <div class="al-branch-card__icon"><i class="fas fa-location-dot"></i></div>
+              <h3 class="al-branch-card__city">QUERÉTARO</h3>
+              <p>Central Park Torre II Piso 9<br>Armando Birlain #2001</p>
+              <a href="tel:+524423252118" class="al-branch-card__tel"><i class="fas fa-phone"></i> +52 442 325 2118</a>
+            </div>
+            <div class="al-branch-card__back">
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Armando+Birlain+2001+Queretaro&output=embed" title="Querétaro"></iframe>
+              <a href="https://maps.google.com/?q=Armando+Birlain+2001+Queretaro" target="_blank" class="btn-primary btn-sm">Ver en mapa</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-3-desktop is-half-tablet is-full-mobile">
+          <div class="al-branch-card">
+            <div class="al-branch-card__front">
+              <div class="al-branch-card__icon"><i class="fas fa-location-dot"></i></div>
+              <h3 class="al-branch-card__city">AGUASCALIENTES</h3>
+              <p>Plaza San Telmo<br>Prol. Gral. Zaragoza 4200</p>
+              <a href="tel:+524491500420" class="al-branch-card__tel"><i class="fas fa-phone"></i> +52 449 150 0420</a>
+            </div>
+            <div class="al-branch-card__back">
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Zaragoza+4200+Aguascalientes&output=embed" title="Aguascalientes"></iframe>
+              <a href="https://maps.google.com/?q=Zaragoza+4200+Aguascalientes" target="_blank" class="btn-primary btn-sm">Ver en mapa</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-3-desktop is-half-tablet is-full-mobile">
+          <div class="al-branch-card">
+            <div class="al-branch-card__front">
+              <div class="al-branch-card__icon"><i class="fas fa-location-dot"></i></div>
+              <h3 class="al-branch-card__city">VILLAHERMOSA</h3>
+              <p>Plaza Mallorca<br>Perif. Carlos Pellicer 204</p>
+              <a href="tel:+529933162340" class="al-branch-card__tel"><i class="fas fa-phone"></i> +52 993 316 2340</a>
+            </div>
+            <div class="al-branch-card__back">
+              <iframe loading="lazy" src="https://maps.google.com/maps?q=Carlos+Pellicer+204+Villahermosa&output=embed" title="Villahermosa"></iframe>
+              <a href="https://maps.google.com/?q=Carlos+Pellicer+204+Villahermosa" target="_blank" class="btn-primary btn-sm">Ver en mapa</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECCIÓN CONTACTO
+  ══════════════════════════════════════════ -->
+  <section class="al-contact section" id="contacto">
+    <div class="container">
+      <div class="columns is-vcentered">
+
+        <!-- Columna izquierda -->
+        <div class="column is-5-desktop al-contact__info" id="contact-left">
+          <h2 class="al-section-title">HABLEMOS</h2>
+          <div class="al-section-line" style="margin:0 0 28px"></div>
+          <p class="al-contact__sub">Nuestro equipo está listo para diseñar el plan de arrendamiento perfecto para ti o tu empresa.</p>
+          <ul class="al-contact__list">
+            <li><i class="fas fa-envelope"></i> <a href="mailto:contacto@autoleasemx.com">contacto@autoleasemx.com</a></li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+529988844323">+52 998 884 4323</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Cancún, Q. Roo · Oficina Central</li>
+          </ul>
+          <a href="https://wa.me/529988844323?text=Hola,%20me%20interesa%20cotizar%20un%20arrendamiento" target="_blank" class="al-whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Chatea con nosotros
+          </a>
+          <div class="al-contact__social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Columna derecha — Formulario -->
+        <div class="column is-7-desktop al-contact__form-wrap" id="contact-right">
+          <form class="al-form" id="contact-form" action="https://formsubmit.co/contacto@autoleasemx.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nueva cotización desde la web" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="columns is-multiline">
+              <div class="column is-half">
+                <div class="field">
+                  <label class="label">Nombre completo *</label>
+                  <div class="control has-icons-left">
+                    <input class="input" type="text" name="nombre" placeholder="Juan García" required />
+                    <span class="icon is-left"><i class="fas fa-user"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="field">
+                  <label class="label">Correo electrónico *</label>
+                  <div class="control has-icons-left">
+                    <input class="input" type="email" name="email" placeholder="juan@empresa.com" required />
+                    <span class="icon is-left"><i class="fas fa-envelope"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="field">
+                  <label class="label">Teléfono</label>
+                  <div class="control has-icons-left">
+                    <input class="input" type="tel" name="telefono" placeholder="+52 998 000 0000" />
+                    <span class="icon is-left"><i class="fas fa-phone"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="field">
+                  <label class="label">Tipo de vehículo</label>
+                  <div class="control has-icons-left">
+                    <div class="select is-fullwidth">
+                      <select name="vehiculo">
+                        <option value="">Selecciona...</option>
+                        <option>Auto</option>
+                        <option>SUV</option>
+                        <option>Pickup</option>
+                        <option>Flotilla</option>
+                        <option>Otro</option>
+                      </select>
+                    </div>
+                    <span class="icon is-left"><i class="fas fa-car"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-full">
+                <div class="field">
+                  <label class="label">Mensaje *</label>
+                  <div class="control">
+                    <textarea class="textarea" name="mensaje" rows="4" placeholder="Cuéntanos qué necesitas..." required></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-full">
+                <div class="field" id="form-error" style="display:none">
+                  <p class="help is-danger"><i class="fas fa-triangle-exclamation"></i> Por favor completa los campos obligatorios.</p>
+                </div>
+                <button type="submit" class="btn-primary btn-full">
+                  <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="al-footer">
+    <div class="al-footer__separator"></div>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4-desktop">
+          <a href="#inicio" class="al-navbar__logo al-footer__logo">
+            <i class="fas fa-car-side"></i>
+            <span>AUTO<strong>LEASE</strong> MX</span>
+          </a>
+          <p class="al-footer__desc">Líderes en arrendamiento puro de vehículos en México. Movilidad inteligente para personas y empresas.</p>
+          <div class="al-contact__social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="column is-4-desktop">
+          <h4 class="al-footer__heading">Links rápidos</h4>
+          <ul class="al-footer__links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#sucursales">Sucursales</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="column is-4-desktop">
+          <h4 class="al-footer__heading">Contacto</h4>
+          <ul class="al-footer__links">
+            <li><i class="fas fa-envelope"></i> contacto@autoleasemx.com</li>
+            <li><i class="fas fa-phone"></i> +52 998 884 4323</li>
+            <li><i class="fas fa-map-marker-alt"></i> Cancún, Q. Roo · Oficina Central</li>
+          </ul>
+        </div>
+      </div>
+      <div class="al-footer__bottom">
+        <p>© 2024 AutoLease MX. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top button -->
+  <button class="al-scroll-top" id="scroll-top" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="main.js"></script>
+</body>
+</html>
